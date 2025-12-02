@@ -1,0 +1,368 @@
+﻿@{
+    ViewData["Title"] = "Inicio";
+}
+
+<!-- Hero Section Mejorada -->
+<section class="hero-section py-5 mb-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8 mx-auto text-center">
+                <!-- Badge de Taller -->
+                <span class="badge bg-primary bg-gradient mb-3 px-3 py-2 rounded-pill">
+                    <i class="bi bi-code-slash me-1"></i> Taller de Desarrollo Web
+                </span>
+
+                <!-- Título Principal con Animación -->
+                <h1 class="display-4 fw-bold text-gradient mb-3">
+                    <i class="bi bi-check2-circle me-2"></i>My Task Manager
+                </h1>
+
+                <!-- Subtítulo -->
+                <p class="lead text-muted mb-4">
+                    La herramienta definitiva para organizar tus proyectos y aumentar tu productividad
+                </p>
+
+                <!-- Stats -->
+                <div class="d-flex justify-content-center gap-5 mb-5">
+                    <div class="text-center">
+                        <h3 class="fw-bold text-primary display-6">+100%</h3>
+                        <p class="text-muted mb-0">Productividad</p>
+                    </div>
+                    <div class="text-center">
+                        <h3 class="fw-bold text-primary display-6">24/7</h3>
+                        <p class="text-muted mb-0">Disponible</p>
+                    </div>
+                    <div class="text-center">
+                        <h3 class="fw-bold text-primary display-6">100%</h3>
+                        <p class="text-muted mb-0">Gratuito</p>
+                    </div>
+                </div>
+
+                <!-- Botones de Acción -->
+                @if (User.Identity?.IsAuthenticated == true)
+                {
+                    <a asp-controller="Tasks" asp-action="Index" class="btn btn-primary btn-lg px-5 py-3 shadow-lg hover-lift">
+                        <i class="bi bi-rocket-takeoff me-2"></i>Continuar a Mis Tareas
+                    </a>
+                    <p class="text-muted mt-3">
+                        <i class="bi bi-arrow-right"></i> Tienes <span class="badge bg-info">@ViewBag.TaskCount</span> tareas pendientes
+                    </p>
+                }
+                else
+                {
+                    <div class="d-flex flex-column flex-md-row gap-3 justify-content-center align-items-center">
+                        <a asp-area="Identity" asp-page="/Account/Login"
+                           class="btn btn-primary btn-lg px-5 py-3 shadow-lg hover-lift">
+                            <i class="bi bi-box-arrow-in-right me-2"></i> Iniciar Sesión
+                        </a>
+                        <a asp-area="Identity" asp-page="/Account/Register"
+                           class="btn btn-outline-primary btn-lg px-5 py-3 hover-lift">
+                            <i class="bi bi-person-plus me-2"></i> Crear Cuenta Gratis
+                        </a>
+                    </div>
+                    <p class="text-muted mt-3">
+                        <i class="bi bi-shield-check text-success"></i> Registro seguro y sin compromiso
+                    </p>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Características Mejoradas -->
+<section class="features-section py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold display-5 mb-3">
+                <i class="bi bi-stars text-warning"></i> Características Destacadas
+            </h2>
+            <p class="text-muted lead">Todo lo que necesitas para organizar tu trabajo eficientemente</p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card card border-0 shadow-lg h-100 hover-scale">
+                    <div class="card-body p-4 text-center">
+                        <div class="icon-wrapper bg-primary bg-opacity-10 rounded-circle p-4 d-inline-block mb-4">
+                            <i class="bi bi-list-check text-primary" style="font-size: 2.5rem;"></i>
+                        </div>
+                        <h3 class="h4 fw-bold mb-3">Gestión Inteligente</h3>
+                        <p class="text-muted mb-0">
+                            Crea, edita y organiza tus tareas con categorías, prioridades y fechas límite
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card card border-0 shadow-lg h-100 hover-scale">
+                    <div class="card-body p-4 text-center">
+                        <div class="icon-wrapper bg-success bg-opacity-10 rounded-circle p-4 d-inline-block mb-4">
+                            <i class="bi bi-arrows-move text-success" style="font-size: 2.5rem;"></i>
+                        </div>
+                        <h3 class="h4 fw-bold mb-3">Drag & Drop</h3>
+                        <p class="text-muted mb-0">
+                            Reorganiza tus tareas fácilmente con arrastrar y soltar intuitivo
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card card border-0 shadow-lg h-100 hover-scale">
+                    <div class="card-body p-4 text-center">
+                        <div class="icon-wrapper bg-info bg-opacity-10 rounded-circle p-4 d-inline-block mb-4">
+                            <i class="bi bi-images text-info" style="font-size: 2.5rem;"></i>
+                        </div>
+                        <h3 class="h4 fw-bold mb-3">Multimedia</h3>
+                        <p class="text-muted mb-0">
+                            Adjunta imágenes y archivos a tus tareas para mayor contexto
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card card border-0 shadow-lg h-100 hover-scale">
+                    <div class="card-body p-4 text-center">
+                        <div class="icon-wrapper bg-warning bg-opacity-10 rounded-circle p-4 d-inline-block mb-4">
+                            <i class="bi bi-bell text-warning" style="font-size: 2.5rem;"></i>
+                        </div>
+                        <h3 class="h4 fw-bold mb-3">Recordatorios</h3>
+                        <p class="text-muted mb-0">
+                            Configura notificaciones para nunca olvidar una tarea importante
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card card border-0 shadow-lg h-100 hover-scale">
+                    <div class="card-body p-4 text-center">
+                        <div class="icon-wrapper bg-danger bg-opacity-10 rounded-circle p-4 d-inline-block mb-4">
+                            <i class="bi bi-search text-danger" style="font-size: 2.5rem;"></i>
+                        </div>
+                        <h3 class="h4 fw-bold mb-3">Búsqueda Avanzada</h3>
+                        <p class="text-muted mb-0">
+                            Encuentra rápidamente lo que necesitas con filtros y búsqueda inteligente
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card card border-0 shadow-lg h-100 hover-scale">
+                    <div class="card-body p-4 text-center">
+                        <div class="icon-wrapper bg-purple bg-opacity-10 rounded-circle p-4 d-inline-block mb-4">
+                            <i class="bi bi-graph-up text-purple" style="font-size: 2.5rem;"></i>
+                        </div>
+                        <h3 class="h4 fw-bold mb-3">Reportes</h3>
+                        <p class="text-muted mb-0">
+                            Visualiza tu progreso con estadísticas y reportes detallados
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Tecnologías -->
+<section class="technologies-section py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold display-5 mb-3">
+                <i class="bi bi-cpu"></i> Tecnologías Utilizadas
+            </h2>
+            <p class="text-muted">Desarrollado con las mejores herramientas del mercado</p>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                <div class="tech-card card border-0 shadow-sm h-100 hover-lift">
+                    <div class="card-body p-4 text-center">
+                        <i class="bi bi-filetype-cs display-4 text-gradient-purple mb-3"></i>
+                        <h5 class="fw-bold mb-2">C#</h5>
+                        <p class="text-muted small mb-0">Lenguaje principal</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                <div class="tech-card card border-0 shadow-sm h-100 hover-lift">
+                    <div class="card-body p-4 text-center">
+                        <i class="bi bi-window display-4 text-gradient-blue mb-3"></i>
+                        <h5 class="fw-bold mb-2">ASP.NET Core</h5>
+                        <p class="text-muted small mb-0">Framework web</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                <div class="tech-card card border-0 shadow-sm h-100 hover-lift">
+                    <div class="card-body p-4 text-center">
+                        <i class="bi bi-bootstrap display-4 text-gradient-purple mb-3"></i>
+                        <h5 class="fw-bold mb-2">Bootstrap 5</h5>
+                        <p class="text-muted small mb-0">Diseño responsivo</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                <div class="tech-card card border-0 shadow-sm h-100 hover-lift">
+                    <div class="card-body p-4 text-center">
+                        <i class="bi bi-database display-4 text-gradient-green mb-3"></i>
+                        <h5 class="fw-bold mb-2">SQLite</h5>
+                        <p class="text-muted small mb-0">Base de datos</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                <div class="tech-card card border-0 shadow-sm h-100 hover-lift">
+                    <div class="card-body p-4 text-center">
+                        <i class="bi bi-shield-lock display-4 text-gradient-orange mb-3"></i>
+                        <h5 class="fw-bold mb-2">Identity</h5>
+                        <p class="text-muted small mb-0">Autenticación</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Final -->
+<section class="cta-section py-5 bg-primary text-white">
+    <div class="container">
+        <div class="row justify-content-center text-center">
+            <div class="col-lg-8">
+                <h2 class="display-5 fw-bold mb-4">
+                    <i class="bi bi-rocket-takeoff"></i> ¿Listo para ser más productivo?
+                </h2>
+                <p class="lead mb-4 opacity-75">
+                    Únete a miles de usuarios que ya están organizando sus tareas con nuestra aplicación
+                </p>
+                @if (User.Identity?.IsAuthenticated != true)
+                {
+                    <a asp-area="Identity" asp-page="/Account/Register"
+                       class="btn btn-light btn-lg px-5 py-3 fw-bold hover-scale">
+                        <i class="bi bi-lightning-charge text-primary me-2"></i>
+                        Comenzar Gratis
+                    </a>
+                }
+                else
+                {
+                    <a asp-controller="Tasks" asp-action="Create"
+                       class="btn btn-light btn-lg px-5 py-3 fw-bold hover-scale">
+                        <i class="bi bi-plus-circle text-primary me-2"></i>
+                        Crear Nueva Tarea
+                    </a>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    :root {
+        --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        --blue-gradient: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+        --purple-gradient: linear-gradient(135deg, #9b4dca 0%, #d946ef 100%);
+        --green-gradient: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+        --orange-gradient: linear-gradient(135deg, #f97316 0%, #fbbf24 100%);
+    }
+
+    .hero-section {
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        border-radius: 20px;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--primary-gradient);
+        }
+
+    .text-gradient {
+        background: var(--primary-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .text-gradient-purple {
+        background: var(--purple-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .text-gradient-blue {
+        background: var(--blue-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .text-gradient-green {
+        background: var(--green-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .text-gradient-orange {
+        background: var(--orange-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .bg-purple {
+        background-color: #9b4dca !important;
+    }
+
+    .hover-lift {
+        transition: all 0.3s ease;
+    }
+
+        .hover-lift:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15) !important;
+        }
+
+    .hover-scale {
+        transition: all 0.3s ease;
+    }
+
+        .hover-scale:hover {
+            transform: scale(1.03);
+        }
+
+    .icon-wrapper {
+        transition: all 0.3s ease;
+    }
+
+    .feature-card:hover .icon-wrapper {
+        transform: rotate(5deg) scale(1.1);
+    }
+
+    .cta-section {
+        background: var(--primary-gradient) !important;
+        border-radius: 20px;
+    }
+
+    .badge {
+        font-size: 0.85em;
+    }
+
+    .display-6 {
+        font-size: 2.5rem;
+    }
+</style>
